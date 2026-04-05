@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule } from '@nestjs/throttler'
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports:[
@@ -28,6 +29,7 @@ import { ThrottlerModule } from '@nestjs/throttler'
     limit: 5,
     },
   ]),
+  AuthModule,
 ],
 })
 export class AppModule {}

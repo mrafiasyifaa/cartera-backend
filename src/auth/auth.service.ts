@@ -16,6 +16,9 @@ export class AuthService {
         const isValid = user && (await bcrypt.compare(password, user.password))
 
         if(!isValid){
+            if(!user){
+                await bcrypt.compare(password, '$2b$12$dummyhashpaddingtomakeittaketime')
+            }
             throw new UnauthorizedException('Email atau password salah!');
         }
 
