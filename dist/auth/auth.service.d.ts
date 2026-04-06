@@ -5,4 +5,7 @@ export declare class AuthService {
     private readonly jwtService;
     constructor(usersService: UsersService, jwtService: JwtService);
     login(email: string, password: string): Promise<string>;
+    register(email: string, password: string): Promise<{
+        message: string;
+    }>;
 }

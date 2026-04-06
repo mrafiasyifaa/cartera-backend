@@ -65,6 +65,10 @@ let AuthService = class AuthService {
         }
         return this.jwtService.sign({ sub: user.id, email: user.email });
     }
+    async register(email, password) {
+        await this.usersService.create(email, password);
+        return { message: 'Registrasi berhasil' };
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
