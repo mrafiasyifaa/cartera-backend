@@ -58,6 +58,9 @@ let AuthService = class AuthService {
         const user = await this.usersService.findByEmail(email);
         const isValid = user && (await bcrypt.compare(password, user.password));
         if (!isValid) {
+            if (!user) {
+                await bcrypt.compare(password, '$2b$12$dummyhashpaddingtomakeittaketime');
+            }
             throw new common_1.UnauthorizedException('Email atau password salah!');
         }
         return this.jwtService.sign({ sub: user.id, email: user.email });

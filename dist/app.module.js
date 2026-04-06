@@ -12,6 +12,8 @@ const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const throttler_1 = require("@nestjs/throttler");
 const auth_module_1 = require("./auth/auth.module");
+const health_module_1 = require("./health/health.module");
+const metrics_module_1 = require("./metrics/metrics.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -42,6 +44,8 @@ exports.AppModule = AppModule = __decorate([
                 },
             ]),
             auth_module_1.AuthModule,
+            health_module_1.HealthModule,
+            metrics_module_1.MetricsModule,
         ],
     })
 ], AppModule);

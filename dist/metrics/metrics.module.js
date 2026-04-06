@@ -9,12 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MetricsModule = void 0;
 const common_1 = require("@nestjs/common");
 const metrics_controller_1 = require("./metrics.controller");
+const prom_client_1 = require("prom-client");
+(0, prom_client_1.collectDefaultMetrics)();
 let MetricsModule = class MetricsModule {
 };
 exports.MetricsModule = MetricsModule;
 exports.MetricsModule = MetricsModule = __decorate([
     (0, common_1.Module)({
-        controllers: [metrics_controller_1.MetricsController]
+        controllers: [metrics_controller_1.MetricsController],
     })
 ], MetricsModule);
 //# sourceMappingURL=metrics.module.js.map
