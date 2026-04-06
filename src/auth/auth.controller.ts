@@ -3,6 +3,7 @@ import type { Response } from 'express';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { RegisterDto } from './dto/register.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -26,5 +27,11 @@ export class AuthController {
     });
 
     return { message: 'Login berhasil' };
+  }
+
+  @Post('register')
+  @ApiOperation({ summary: 'Register user baru' })
+  async register(@Body() dto: RegisterDto){
+    return this.authService.register(dto.email, dto.password)
   }
 }
